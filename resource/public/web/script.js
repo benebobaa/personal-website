@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 redirect: 'follow'
             };
             document.getElementsByClassName("submit-btn")[0].classList.add('show-loading');
-            fetch("https://contact-form.devchapter-work.workers.dev", requestOptions)
+            fetch("https://contact-form.devchapter-work.workers.devw", requestOptions)
                 .then(response => response.text())
                 .then(result => {
                     document.getElementsByClassName("submit-btn")[0].classList.remove('show-loading')

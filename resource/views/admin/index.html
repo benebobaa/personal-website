@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Admin Dashboard</title>
+</head>
+
+<body class="font-sans bg-gray-100">
+
+<!-- Sidebar -->
+<aside class="bg-gray-800 text-gray-300 w-64 min-h-screen p-5">
+    <h1 class="text-2xl font-bold mb-4">Admin Dashboard</h1>
+    <nav>
+        <ul>
+            <li class="mb-2">
+                <a href="#" hx-get="/dashboard" hx-target="#main-content">Dashboard</a>
+            </li>
+            <li class="mb-2">
+                <a href="#" hx-get="/" hx-target="#main-content">Users</a>
+            </li>
+            <!-- Add more menu items as needed -->
+        </ul>
+    </nav>
+</aside>
+
+<!-- Main Content -->
+<main id="main-content" class="ml-64 p-8">
+    <!-- Content will be loaded here dynamically -->
+    <h2 class="text-2xl font-bold mb-4">Dashboard</h2>
+    <!-- Example Data Table -->
+    <table class="min-w-full border bg-white">
+        <thead>
+        <tr>
+            <th class="border p-2">ID</th>
+            <th class="border p-2">Name</th>
+            <th class="border p-2">Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="border p-2">1</td>
+            <td class="border p-2">John Doe</td>
+            <td class="border p-2">john@example.com</td>
+        </tr>
+        <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</main>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/htmx.org@1.7.0/dist/htmx.js"></script>
+<script>
+    // Handle navigation with htmx
+    htmx.on('htmx:load', function (event) {
+        if (event.detail.target.id === 'main-content') {
+            // Handle dynamic content loading
+            console.log('Content loaded:', event.detail.target.innerHTML);
+        }
+    });
+</script>
+
+</body>
+
+</html>

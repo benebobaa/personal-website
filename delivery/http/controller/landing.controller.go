@@ -2,6 +2,7 @@ package controller
 
 import (
 	"github.com/gofiber/fiber/v2"
+	"log"
 	"personal-website/domain"
 )
 
@@ -18,5 +19,25 @@ func NewLandingController(domain domain.Domain) LandingController {
 }
 
 func (l *landingControllerImpl) Index(ctx *fiber.Ctx) error {
-	return ctx.Render("resource/views/landing/index", nil)
+
+	hero, err := l.domain.LandingUsecase.GetHero()
+	if err != nil {
+		log.Printf("error getting hero:: %v", err)
+		return ctx.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"error": err,
+		})
+	}
+
+	socmeds, err := l.domain.LandingUsecase.GetSocmed()
+	if err != nil {
+		log.Printf("error getting socmeds:: %v", err)
+		return ctx.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"error": err,
+		})
+	}
+
+	return ctx.Render("resource/views/landing/index", fiber.Map{
+		"Hero":    hero,
+		"Socmeds": socmeds,
+	})
 }

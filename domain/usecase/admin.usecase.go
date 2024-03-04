@@ -32,8 +32,79 @@ func (a *AdminUsecase) CreateAdmin(request *request.AdminRequest) (*response.Adm
 
 	err = a.AdminRepository.Create(admin)
 	if err != nil {
+		log.Printf("error creating admin:: %v", err)
 		return nil, err
 	}
 
 	return admin.ToResponse(), nil
+}
+
+func (a *AdminUsecase) CreateHero(request *request.HeroRequest) error {
+
+	err := a.Validate.Struct(request)
+	if err != nil {
+		log.Printf("error validating hero request:: %v", err)
+		return err
+	}
+
+	err = a.AdminRepository.CreateHero(request.ToEntity())
+	if err != nil {
+		log.Printf("error creating hero:: %v", err)
+		return err
+	}
+
+	return nil
+}
+
+func (a *AdminUsecase) UpdateHero(request *request.HeroUpdateRequest) error {
+
+	err := a.Validate.Struct(request)
+	if err != nil {
+		log.Printf("error validating hero request:: %v", err)
+		return err
+	}
+
+	err = a.AdminRepository.UpdateHero(request.ToEntity())
+
+	if err != nil {
+		log.Printf("error updating hero:: %v", err)
+		return err
+	}
+
+	return nil
+}
+
+func (a *AdminUsecase) CreateSocmed(request *request.SocmedRequest) error {
+
+	err := a.Validate.Struct(request)
+	if err != nil {
+		log.Printf("error validating social media request:: %v", err)
+		return err
+	}
+
+	err = a.AdminRepository.CreateSocmed(request.ToEntity())
+	if err != nil {
+		log.Printf("error creating social media:: %v", err)
+		return err
+	}
+
+	return nil
+}
+
+func (a *AdminUsecase) UpdateSocmed(request *request.SocmedUpdateRequest) error {
+
+	err := a.Validate.Struct(request)
+	if err != nil {
+		log.Printf("error validating social media request:: %v", err)
+		return err
+	}
+
+	err = a.AdminRepository.UpdateSocmed(request.ToEntity())
+
+	if err != nil {
+		log.Printf("error updating social media:: %v", err)
+		return err
+	}
+
+	return nil
 }

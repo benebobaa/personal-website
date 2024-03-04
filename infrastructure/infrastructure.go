@@ -4,7 +4,6 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"log"
-	"personal-website/domain/entity"
 )
 
 func NewDatabaseConnection(dsn string) *gorm.DB {
@@ -14,9 +13,9 @@ func NewDatabaseConnection(dsn string) *gorm.DB {
 		log.Fatal(err)
 	}
 
-	if err := db.AutoMigrate(&entity.Admin{}); err != nil {
-		log.Fatal(err)
-	}
+	//if err := db.AutoMigrate(&entity.Admin{}, &entity.Hero{}, &entity.Socmed{}); err != nil {
+	//	log.Fatal(err)
+	//}
 
 	return db
 }

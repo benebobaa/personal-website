@@ -9,7 +9,7 @@ type Admin struct {
 }
 
 func (Admin) TableName() string {
-	return "admin"
+	return "admins"
 }
 
 func (a *Admin) ToResponse() *response.AdminResponse {

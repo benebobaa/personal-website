@@ -30,10 +30,10 @@
                 <li class="services active" data-aos-delay="200" data-aos="fade-down"><a href="#services">Services</a></li>
                 <li class="portfolios" data-aos-delay="250" data-aos="fade-down"><a href="#portfolios">Portfolios</a></li>
                 <li class="experience" data-aos-delay="300" data-aos="fade-down"><a href="#experience">Experience</a></li>
-                <li class="blog" data-aos-delay="350" data-aos="fade-down"><a href="#blog">Blog</a></li>
-                <li class="testimonials mobile-link" data-aos-delay="350" data-aos="fade-down"><a href="#testimonials">Testimonials</a></li>
-                <li class="education-skill mobile-link" data-aos-delay="350" data-aos="fade-down"><a href="#education-skill">Education</a></li>
-                <li class="contact mobile-link" data-aos-delay="350" data-aos="fade-down"><a href="#contact">Contact</a></li>
+                <li class="blog" data-aos-delay="350" data-aos="fade-down"><a href="#contact">Contact</a></li>
+<!--                <li class="testimonials mobile-link" data-aos-delay="350" data-aos="fade-down"><a href="#testimonials">Testimonials</a></li>-->
+<!--                <li class="education-skill mobile-link" data-aos-delay="350" data-aos="fade-down"><a href="#education-skill">Education</a></li>-->
+<!--                <li class="contact mobile-link" data-aos-delay="350" data-aos="fade-down"><a href="#contact">Contact</a></li>-->
                 <li class="mobile-link" data-aos-delay="350" data-aos="fade-down"><a href="static/assets/resume.pdf" >Resume</a></li>
 <!--                <li data-aos-delay="400" data-aos="fade-down" class="more-links">-->
 <!--                    <svg viewBox="0 0 12 3"><use xlink:href="static/assets/img/sprite.svg#more-links"></use></svg>-->
@@ -66,38 +66,42 @@
         <div class="container">
             <div class="content" data-aos="fade-up">
                 <p class="above-title mb-12">My name is</p>
-                <h1 class="full-name">Alex <span class="primary">Smith.</span></h1>
-                <p class="about">Creative front-end developer with more than +5 years of experience in enterprise companies and startups.  Proficient in JavaScript, Angular, and React. Passionate about UI/UX</p>
+                <h1 class="full-name">{{.Hero.FirstName}} <span class="primary">{{.Hero.LastName}}.</span></h1>
+                <p class="about">{{.Hero.Description}}</p>
                 <a href="static/assets/resume.pdf" target="_blank" class="btn btn-outline-light download-resume-mobile">Download Resume</a>
+
+
                 <ul class="social-icons">
+                    {{ range .Socmeds }}
                     <li>
-                        <a href="#">
+                        <a href="{{ .Link }}" target="_blank">
                             <svg viewBox="0 0 24 24">
-                                <use xlink:href="static/assets/img/sprite.svg#instagram-icon"></use>
+                                <use xlink:href="static/assets/img/sprite.svg#{{ .Name }}"></use>
                             </svg>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <svg viewBox="0 0 24 24">
-                                <use xlink:href="static/assets/img/sprite.svg#github-icon"></use>
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <svg viewBox="0 0 24 24">
-                                <use xlink:href="static/assets/img/sprite.svg#twitter-icon"></use>
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <svg viewBox="0 0 24 24">
-                                <use xlink:href="static/assets/img/sprite.svg#linkedin-icon"></use>
-                            </svg>
-                        </a>
-                    </li>
+                    {{ end }}
+<!--                    <li>-->
+<!--                        <a href="#">-->
+<!--                            <svg viewBox="0 0 24 24">-->
+<!--                                <use xlink:href="static/assets/img/sprite.svg#github-icon"></use>-->
+<!--                            </svg>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#">-->
+<!--                            <svg viewBox="0 0 24 24">-->
+<!--                                <use xlink:href="static/assets/img/sprite.svg#twitter-icon"></use>-->
+<!--                            </svg>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#">-->
+<!--                            <svg viewBox="0 0 24 24">-->
+<!--                                <use xlink:href="static/assets/img/sprite.svg#linkedin-icon"></use>-->
+<!--                            </svg>-->
+<!--                        </a>-->
+<!--                    </li>-->
                 </ul>
             </div>
 <!--            <div class="image" data-aos="fade-up">-->
@@ -128,6 +132,7 @@
                     <h4 class="title">UI/UX Design</h4>
                     <p class="body">Turn what you have in mind of a digital product into reality. For any platform you consider.</p>
                 </div>
+
                 <div class="service-item" data-aos="fade-up" data-aos-delay="250">
                     <div class="icon">
                         <svg viewBox="0 0 25 24">
@@ -268,6 +273,7 @@
                         <li data-tab="microsoft" data-aos-delay="50" data-aos="fade-up">Microsoft</li>
                         <li data-tab="facebook" data-aos-delay="100" data-aos="fade-up">Facebook</li>
                         <li data-tab="slack" data-aos-delay="150" data-aos="fade-up">Slack</li>
+
                     </ul>
                 </div>
             </div>
@@ -345,91 +351,91 @@
             </div>
         </div>
     </section>
-    <section class="blog-section" id="blog">
-        <div class="container">
-            <div class="section-name center" data-aos="fade-up">
-                <div class="content">
-                    <p class="above-title">My articles</p>
-                    <h4 class="title">Personal Blog</h4>
-                </div>
-            </div>
-            <div class="post-item-wrapper">
-                <article class="post-item" data-aos="fade-up" data-aos-delay="50" >
-                    <figure>
-                        <img src="static/assets/img/blog-item-1.jpg" alt="Deploy Next.js Project on Heroku">
-                    </figure>
-                    <div class="content">
-                        <h3 class="title">How to prototype in figma</h3>
-                        <div class="detail">
-                            <time class="tag">July 15, 2021</time>
-                        </div>
-                        <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id magna nec ante scelerisque laoreet. Fusce finibus ...</p>
-                        <div class="bottom">
-                            <a href="#">Continue Reading</a>
-                        </div>
-                    </div>
-                </article>
-                <article class="post-item" data-aos="fade-up" data-aos-delay="100" >
-                    <figure>
-                        <img src="static/assets/img/blog-item-2.jpg" alt="Deploy Next.js Project on Heroku">
-                    </figure>
-                    <div class="content">
-                        <h3 class="title">Being more productive with Notion.</h3>
-                        <div class="detail">
-                            <time class="tag">Aug 8, 2020</time>
-                        </div>
-                        <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id magna nec ante scelerisque laoreet. Fusce finibus ...</p>
-                        <div class="bottom">
-                            <a href="#">Continue Reading</a>
-                        </div>
-                    </div>
-                </article>
-                <article class="post-item" data-aos="fade-up" data-aos-delay="150" >
-                    <figure>
-                        <img src="static/assets/img/blog-item-3.jpg" alt="Deploy Next.js Project on Heroku">
-                    </figure>
-                    <div class="content">
-                        <h3 class="title">Beginners guide to adobe illustrator</h3>
-                        <div class="detail">
-                            <time class="tag">Feb 19, 2021</time>
-                        </div>
-                        <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id magna nec ante scelerisque laoreet. Fusce finibus ...</p>
-                        <div class="bottom">
-                            <a href="#">Continue Reading</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-    <section class="testimonial-section" id="testimonials">
-        <div class="container">
-            <div class="section-name" data-aos="fade-up">
-                <p class="above-title">My clients</p>
-                <h4 class="title">Testimonials</h4>
-            </div>
-            <div class="testimonial-item-wrapper">
-                <div class="testimonial-item" data-aos="fade-up" data-aos-delay="50">
-                    <img class="avatar" src="static/assets/img/testimonial-avatar-1.jpg" alt="Amelia Miller">
-                    <p class="text">We were very pleased to hear how you resolved our website's user interface issues and challenges.</p>
-                    <p class="name">Amelia Miller</p>
-                    <p class="tag job-title">Designer</p>
-                </div>
-                <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
-                    <img class="avatar" src="static/assets/img/testimonial-avatar-2.jpg" alt="Amelia Miller">
-                    <p class="text">I’m glad I decided to work with you. The project was delivered on time with all the requirements.</p>
-                    <p class="name">James Delaney</p>
-                    <p class="tag job-title">Developer</p>
-                </div>
-                <div class="testimonial-item" data-aos="fade-up" data-aos-delay="150">
-                    <img class="avatar" src="static/assets/img/testimonial-avatar-3.jpg" alt="Amelia Miller">
-                    <p class="text">The management of our projects was always faced with difficulties, but you handled these well.</p>
-                    <p class="name">Isabella Bennett</p>
-                    <p class="tag job-title">Manager</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!--    <section class="blog-section" id="blog">-->
+<!--        <div class="container">-->
+<!--            <div class="section-name center" data-aos="fade-up">-->
+<!--                <div class="content">-->
+<!--                    <p class="above-title">My articles</p>-->
+<!--                    <h4 class="title">Personal Blog</h4>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="post-item-wrapper">-->
+<!--                <article class="post-item" data-aos="fade-up" data-aos-delay="50" >-->
+<!--                    <figure>-->
+<!--                        <img src="static/assets/img/blog-item-1.jpg" alt="Deploy Next.js Project on Heroku">-->
+<!--                    </figure>-->
+<!--                    <div class="content">-->
+<!--                        <h3 class="title">How to prototype in figma</h3>-->
+<!--                        <div class="detail">-->
+<!--                            <time class="tag">July 15, 2021</time>-->
+<!--                        </div>-->
+<!--                        <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id magna nec ante scelerisque laoreet. Fusce finibus ...</p>-->
+<!--                        <div class="bottom">-->
+<!--                            <a href="#">Continue Reading</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </article>-->
+<!--                <article class="post-item" data-aos="fade-up" data-aos-delay="100" >-->
+<!--                    <figure>-->
+<!--                        <img src="static/assets/img/blog-item-2.jpg" alt="Deploy Next.js Project on Heroku">-->
+<!--                    </figure>-->
+<!--                    <div class="content">-->
+<!--                        <h3 class="title">Being more productive with Notion.</h3>-->
+<!--                        <div class="detail">-->
+<!--                            <time class="tag">Aug 8, 2020</time>-->
+<!--                        </div>-->
+<!--                        <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id magna nec ante scelerisque laoreet. Fusce finibus ...</p>-->
+<!--                        <div class="bottom">-->
+<!--                            <a href="#">Continue Reading</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </article>-->
+<!--                <article class="post-item" data-aos="fade-up" data-aos-delay="150" >-->
+<!--                    <figure>-->
+<!--                        <img src="static/assets/img/blog-item-3.jpg" alt="Deploy Next.js Project on Heroku">-->
+<!--                    </figure>-->
+<!--                    <div class="content">-->
+<!--                        <h3 class="title">Beginners guide to adobe illustrator</h3>-->
+<!--                        <div class="detail">-->
+<!--                            <time class="tag">Feb 19, 2021</time>-->
+<!--                        </div>-->
+<!--                        <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id magna nec ante scelerisque laoreet. Fusce finibus ...</p>-->
+<!--                        <div class="bottom">-->
+<!--                            <a href="#">Continue Reading</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </article>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+<!--    <section class="testimonial-section" id="testimonials">-->
+<!--        <div class="container">-->
+<!--            <div class="section-name" data-aos="fade-up">-->
+<!--                <p class="above-title">My clients</p>-->
+<!--                <h4 class="title">Testimonials</h4>-->
+<!--            </div>-->
+<!--            <div class="testimonial-item-wrapper">-->
+<!--                <div class="testimonial-item" data-aos="fade-up" data-aos-delay="50">-->
+<!--                    <img class="avatar" src="static/assets/img/testimonial-avatar-1.jpg" alt="Amelia Miller">-->
+<!--                    <p class="text">We were very pleased to hear how you resolved our website's user interface issues and challenges.</p>-->
+<!--                    <p class="name">Amelia Miller</p>-->
+<!--                    <p class="tag job-title">Designer</p>-->
+<!--                </div>-->
+<!--                <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">-->
+<!--                    <img class="avatar" src="static/assets/img/testimonial-avatar-2.jpg" alt="Amelia Miller">-->
+<!--                    <p class="text">I’m glad I decided to work with you. The project was delivered on time with all the requirements.</p>-->
+<!--                    <p class="name">James Delaney</p>-->
+<!--                    <p class="tag job-title">Developer</p>-->
+<!--                </div>-->
+<!--                <div class="testimonial-item" data-aos="fade-up" data-aos-delay="150">-->
+<!--                    <img class="avatar" src="static/assets/img/testimonial-avatar-3.jpg" alt="Amelia Miller">-->
+<!--                    <p class="text">The management of our projects was always faced with difficulties, but you handled these well.</p>-->
+<!--                    <p class="name">Isabella Bennett</p>-->
+<!--                    <p class="tag job-title">Manager</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
     <section class="education-skill-section" id="education-skill">
         <div class="container">
             <div class="section-name" data-aos="fade-up">
@@ -453,6 +459,16 @@
                         <p class="degree-field">Diploma's degree - Mathematics</p>
                         <p class="date">2013 - 2015</p>
                     </div>
+                    <div class="education-item" data-aos="fade-up" data-aos-delay="200">
+                        <h4 class="school">Westminster School</h4>
+                        <p class="degree-field">Diploma's degree - Mathematics</p>
+                        <p class="date">2013 - 2015</p>
+                    </div>
+                    <div class="education-item" data-aos="fade-up" data-aos-delay="200">
+                        <h4 class="school">Westminster School</h4>
+                        <p class="degree-field">Diploma's degree - Mathematics</p>
+                        <p class="date">2013 - 2015</p>
+                    </div>
                 </div>
                 <div class="skill">
                     <p class="description" data-aos="fade-up" data-aos-delay="50">For 5+ years, I have been continuously learning in the field of front-end and experimenting with new technologies and frameworks, and here you can see a summary of my skills.</p>
@@ -467,8 +483,9 @@
                         </div>
                         <div class="progress-bar">
                             <p class="label">JavaScript</p>
-                            <div class="main-bar"><div class="fill" data-width="55"></div></div>
+                            <div class="main-bar"><div class="fill" data-width="100"></div></div>
                         </div>
+
                     </div>
                 </div>
             </div>
